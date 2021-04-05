@@ -30,5 +30,9 @@ public class TestMaths {
 		assertEquals(10,maths.sub1(20, 10));
 	}
 	
+	@Test
+	public void testAdd1() {
+		assertEquals(10,maths.add1(5, 5));
+	}
 	
 }

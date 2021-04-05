@@ -14,5 +14,9 @@ public class Maths {
 		return a-b;
 	}
 	
+	public int add1(int a,int b) {
+		return a+b;
+	}
+	
 	
 }
