@@ -25,7 +25,10 @@ public class TestMaths {
 		assertEquals(10,maths.sub(20, 10));
 	}
 	
-	
+	@Test
+	public void testSubs1() {
+		assertEquals(10,maths.sub1(20, 10));
+	}
 	
 	
 }
