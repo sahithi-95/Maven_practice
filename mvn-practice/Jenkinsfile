@@ -9,18 +9,22 @@ pipeline{
       }
       
       }
+      }
       
-      stage ("Compile stage'){
+      stage ('Compile stage'){
       steps{
            withMaven(maven : 'mvn'){
-      sh 'mvn -f mvn mvn-practice/pom.xml clean compile'
+      sh 'mvn -f mvn-practice/pom.xml compile'
+      }
       }
       
       }
        stage ('Test stage'){
        steps{
-             sh 'mvn -f mvn mvn-practice/pom.xml test'
-       sh 'mvn test'
+            withMaven(maven: 'mvn'){
+             sh 'mvn -f mvn-practice/pom.xml install'
+       
+       }
        }
        
        }
