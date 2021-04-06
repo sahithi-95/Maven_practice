@@ -4,6 +4,7 @@ pipeline{
      stages{
       stage ("Check stage"){
       steps{
+          withMaven(maven : 'mvn'){
           sh 'mvn -- version'
       }
       
@@ -11,12 +12,14 @@ pipeline{
       
       stage ("Compile stage'){
       steps{
-      sh 'mvn clean compile'
+           withMaven(maven : 'mvn'){
+      sh 'mvn -f mvn mvn-practice/pom.xml clean compile'
       }
       
       }
-       stage ('test stage'){
+       stage ('Test stage'){
        steps{
+             sh 'mvn -f mvn mvn-practice/pom.xml test'
        sh 'mvn test'
        }
        
