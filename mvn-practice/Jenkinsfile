@@ -4,24 +4,24 @@ pipeline {
 	stages {
 		stage('Check stage') {
 			steps {
-				withMaven(maven : 'Mvn') {
-					sh 'mvn --version'
+				withMaven(maven : 'mvn') {
+					bat 'mvn --version'
 				}
 			}
 		}
 		
 		stage('Compile stage') {
 			steps {
-				withMaven(maven : 'Mvn') {
-					sh 'mvn -f mvn-math/pom.xml compile'
+				withMaven(maven : 'mvn') {
+					bat 'mvn -f mvn-math/pom.xml compile'
 				}
 			}
 		}
 		
 		stage('Test stage') {
 			steps {
-				withMaven(maven : 'Mvn') {
-					sh 'mvn -f mvn-math/pom.xml install'
+				withMaven(maven : 'mvn') {
+					bat 'mvn -f mvn-math/pom.xml install'
 				}
 			}
 		}
