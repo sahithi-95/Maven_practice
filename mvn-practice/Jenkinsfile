@@ -1,33 +1,33 @@
 pipeline{
      agent any
      
-     stages{
-      stage ("Check stage"){
-      steps{
-          withMaven(maven : 'mvn'){
-          sh 'mvn -- version'
-      }
-      
-      }
+     stages {
+      stage ('Check stage'){
+          steps {
+              withMaven(maven : 'mvn'){
+                  sh 'mvn -- version'
+                }
+        
+              }
       }
       
       stage ('Compile stage'){
       steps{
-           withMaven(maven : 'mvn'){
-      sh 'mvn -f mvn-practice/pom.xml compile'
-      }
-      }
+           withMaven(maven : 'mvn') {
+          sh 'mvn -f mvn-practice/pom.xml compile'
+          }
+        }
       
       }
        stage ('Test stage'){
-       steps{
+         steps{
             withMaven(maven: 'mvn'){
              sh 'mvn -f mvn-practice/pom.xml install'
        
-       }
-       }
+             }
+           }
        
-       }
+         }
        }
        
        
